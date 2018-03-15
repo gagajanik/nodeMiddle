@@ -9,8 +9,8 @@ var expressSession=require('express-session');
 var hbs = require('express-handlebars');
 var cors = require('cors');
 var index = require('./routes/index');
-var auth = require('./routes/auth');;
-
+var auth = require('./routes/auth');
+var mailer = require('./routes/mailer');
 var app = express();
 
 app.use(cors({origin: [
@@ -35,6 +35,7 @@ app.use(expressSession({secret:'gaga', saveUninitialized:false, resave:false}));
 
 app.use('/', index);
 app.use('/auth', auth);
+app.use('/mail', mailer);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
