@@ -22,6 +22,7 @@ router.post('/submit',  function(req, res, next) {
         req.session.userName=req.body.userName;
         req.session.password=req.body.password;
         res.write('{status:"kaia"}'+req.session.userName);
+
     }
     res.end();
 });
